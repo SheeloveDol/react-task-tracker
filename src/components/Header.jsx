@@ -1,5 +1,4 @@
 import React from 'react';
-import './header.css'; 
 import Button from './Button'
 
 const Header = ({ title }) => {
