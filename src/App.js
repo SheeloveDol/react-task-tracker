@@ -30,6 +30,15 @@ function App() {
     },
   ])
 
+  // To add a new task
+  
+  const addTask = (task) => { 
+    const id = Math.floor(Math.random() * 10000) +1
+    const newTask = { id, ...task } 
+    setTasks([...tasks, newTask])
+  }
+
+
   // To delete a task 
   const deleteTask = (id) => {
     setTasks(tasks.filter((task) => task.id !== id))
@@ -43,7 +52,7 @@ function App() {
   return (
     <div className="container">
       <Header title='Task Tracker' />
-      <AddTask />
+      <AddTask onAdd={addTask} />
       {tasks.length > 0 ? (
         <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} />) : (
           'No Current Tasks To Track...'
